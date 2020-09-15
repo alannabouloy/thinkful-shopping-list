@@ -7,12 +7,13 @@ function main(){
     event.preventDefault(); 
     let listItem = $('#shopping-list-entry').val();
     addItem(listItem);
-    checkItem();
-    deleteItem();
     console.log('main is working');
     
   });
+  checkItem();
+  deleteItem();
 }
+
 //function to add list-item to DOM
 function addItem(listItem){
   $('.shopping-list').append(` <li>
@@ -28,10 +29,15 @@ function addItem(listItem){
   </li>`);
   console.log(`${listItem} added`);
 }
+
 //function to check item off list
 function checkItem(){
+  $('.shopping-list').on('click','.shopping-item-toggle', event => {
+    $(event.currentTarget).parent().siblings('.shopping-item').toggleClass('shopping-item__checked');
+  } );
   console.log('checkItem is working');
 }
+
 //function to delete item
 function deleteItem(){
   console.log('deleteItem is working');
