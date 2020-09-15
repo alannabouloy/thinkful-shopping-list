@@ -40,6 +40,9 @@ function checkItem(){
 
 //function to delete item
 function deleteItem(){
+  $('.shopping-list').on('click', '.shopping-item-delete', event => {
+    $(event.currentTarget).parentsUntil('ul').remove();
+  });
   console.log('deleteItem is working');
 }
 
